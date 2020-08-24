@@ -20,7 +20,10 @@ def create_custom_hn(links, votes):
             points = int(vote[0].getText().replace('points', ''))
             if points > 99:
                 hn.append({'title': title, 'link': href, 'votes': points})
-    return hn
+
+    def sort_stories_by_votes(hnlist):
+        return sorted(hnlist, key=lambda key: key['votes'])
+    return sort_stories_by_votes(hn)
 
 
-pprint(create_custom_hn(links, subtext)[0])
+pprint(create_custom_hn(links, subtext))
